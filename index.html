@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman Pertama Saya</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="#projects">Portofolio</a>
+      <a href="#about">Tentang</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+
+    <section id="hero">
+      <h1>Mahasiswa Full-Stack</h1>
+      <p>
+        Saya Sandi, mahasiswa Politeknik Indramayu yang membangun sistem nyata —
+        web, mobile, sampai tooling DevOps.
+      </p>
+      <img id="fotoProfil" src="assets/sandi.jpg" alt="Foto Sandi" />
+      <input
+        type="file"
+        id="fotoInput"
+        accept="image/*"
+        style="display: none"
+      />
+    </section>
+
+    <section id="projects">
+      <h2>Projek Saya</h2>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <h3>Nama Projek Pertama</h3>
+          <p>Deskripsi singkat projek ini ngapain.</p>
+          <a href="#">Buka Projek</a>
+        </div>
+        <div class="proj-card">
+          <h3>Nama Projek Kedua</h3>
+          <p>Deskripsi singkat projek ini ngapain.</p>
+          <a href="#">Buka Projek</a>
+        </div>
+      </div>
+
+      <h3>Tambah Projek Baru</h3>
+      <input type="text" id="inputNamaProjek" placeholder="Nama projek" />
+      <textarea
+        id="inputDeskripsiProjek"
+        placeholder="Deskripsi singkat"
+      ></textarea>
+      <button id="tombolTambahProjek">Tambah Projek</button>
+    </section>
+
+    <section id="about">
+      <h2>Tentang Saya</h2>
+      <p>
+        Saya mahasiswa Teknik Informatika di Politeknik Indramayu (Polindra).
+        Fokus saya di pengembangan web, mobile, dan DevOps.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Kontak</h2>
+      <p>Mau kolaborasi atau magang bareng?</p>
+      <a href="mailto:email-kamu@contoh.com">email-kamu@contoh.com</a>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
