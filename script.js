@@ -36,8 +36,8 @@ async function muatProjekDariFirebase() {
   const snapshot = await getDocs(collection(window.db, "projects"));
 
   daftarProjek = [];
-  snapshot.forEach((doc) => {
-    daftarProjek.push(doc.data());
+  snapshot.forEach((docSnap) => {
+    daftarProjek.push({ id: docSnap.id, ...docSnap.data() });
   });
 
   tampilkanSemuaProjek();
@@ -61,18 +61,46 @@ tombolTambah.addEventListener("click", async function () {
   muatProjekDariFirebase();
 });
 
+let modalHapus = document.querySelector("#modalHapus");
+let modalHapusYa = document.querySelector("#modalHapusYa");
+let modalHapusBatal = document.querySelector("#modalHapusBatal");
+let idAkanDihapus = null;
+
 function tampilkanSemuaProjek() {
   grid.innerHTML = "";
   for (let i = 0; i < daftarProjek.length; i++) {
     let p = daftarProjek[i];
+    let tombolHapus = window.auth.currentUser
+      ? `<button class="tombolHapusProjek" data-id="${p.id}">Hapus</button>`
+      : "";
     grid.innerHTML += `
       <div class="proj-card">
         <h3>${p.nama}</h3>
         <p>${p.deskripsi}</p>
+        ${tombolHapus}
       </div>
     `;
   }
+
+  document.querySelectorAll(".tombolHapusProjek").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      idAkanDihapus = this.dataset.id;
+      modalHapus.style.display = "flex";
+    });
+  });
 }
+
+modalHapusBatal.addEventListener("click", function () {
+  idAkanDihapus = null;
+  modalHapus.style.display = "none";
+});
+
+modalHapusYa.addEventListener("click", async function () {
+  const { doc, deleteDoc } = window.firestoreFns;
+  await deleteDoc(doc(window.db, "projects", idAkanDihapus));
+  modalHapus.style.display = "none";
+  muatProjekDariFirebase();
+});
 
 function simpanKeLocalStorage() {
   localStorage.setItem("daftarProjek", JSON.stringify(daftarProjek));

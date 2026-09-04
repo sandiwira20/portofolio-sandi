@@ -68,6 +68,14 @@
       <a href="mailto:email-kamu@contoh.com">email-kamu@contoh.com</a>
     </section>
 
+    <div id="modalHapus" style="display: none">
+      <div class="modal-box">
+        <p>Yakin mau hapus projek ini?</p>
+        <button id="modalHapusYa">Ya, Hapus</button>
+        <button id="modalHapusBatal">Batal</button>
+      </div>
+    </div>
+
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
       import {
@@ -75,6 +83,8 @@
         collection,
         getDocs,
         addDoc,
+        deleteDoc,
+        doc,
       } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
       import {
         getAuth,
@@ -97,7 +107,7 @@
       const auth = getAuth(app);
 
       window.db = db;
-      window.firestoreFns = { collection, getDocs, addDoc };
+      window.firestoreFns = { collection, getDocs, addDoc, deleteDoc, doc };
       window.auth = auth;
       window.authFns = {
         signInWithEmailAndPassword,

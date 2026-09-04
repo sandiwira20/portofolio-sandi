@@ -160,3 +160,35 @@ h2 {
   box-shadow: 0 0 var(--hitam);
   transform: translate(8px, 8px);
 }
+
+#modalHapus {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background: var(--putih);
+  border: 4px solid var(--hitam);
+  box-shadow: 8px 8px 0 var(--hitam);
+  padding: 24px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.modal-box button {
+  margin: 16px 6px 0;
+  border: 4px solid var(--hitam);
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#modalHapusYa {
+  background: var(--pink);
+  color: white;
+}
