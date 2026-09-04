@@ -31,25 +31,27 @@
     <section id="projects">
       <h2>Projek Saya</h2>
       <div class="proj-grid">
-        <div class="proj-card">
-          <h3>Nama Projek Pertama</h3>
-          <p>Deskripsi singkat projek ini ngapain.</p>
-          <a href="#">Buka Projek</a>
-        </div>
-        <div class="proj-card">
-          <h3>Nama Projek Kedua</h3>
-          <p>Deskripsi singkat projek ini ngapain.</p>
-          <a href="#">Buka Projek</a>
-        </div>
+        <p style="font-family: monospace; opacity: 0.6">Memuat projek...</p>
       </div>
 
-      <h3>Tambah Projek Baru</h3>
-      <input type="text" id="inputNamaProjek" placeholder="Nama projek" />
-      <textarea
-        id="inputDeskripsiProjek"
-        placeholder="Deskripsi singkat"
-      ></textarea>
-      <button id="tombolTambahProjek">Tambah Projek</button>
+      <div id="loginBox">
+        <h3>Login Admin</h3>
+        <input type="text" id="inputEmail" placeholder="Email" />
+        <input type="password" id="inputPassword" placeholder="Password" />
+        <button id="tombolLogin">Login</button>
+        <p id="loginStatus"></p>
+      </div>
+
+      <div id="formTambahProjek" style="display: none">
+        <h3>Tambah Projek Baru</h3>
+        <input type="text" id="inputNamaProjek" placeholder="Nama projek" />
+        <textarea
+          id="inputDeskripsiProjek"
+          placeholder="Deskripsi singkat"
+        ></textarea>
+        <button id="tombolTambahProjek">Tambah Projek</button>
+        <button id="tombolLogout">Logout</button>
+      </div>
     </section>
 
     <section id="about">
@@ -66,6 +68,43 @@
       <a href="mailto:email-kamu@contoh.com">email-kamu@contoh.com</a>
     </section>
 
-    <script src="script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBpkPJYOVqRZ1POS3raJvZw9lTDGsovvSQ",
+        authDomain: "portofolio-sandi.firebaseapp.com",
+        projectId: "portofolio-sandi",
+        storageBucket: "portofolio-sandi.firebasestorage.app",
+        messagingSenderId: "532734362143",
+        appId: "1:532734362143:web:e68fa01efc05a994db8b2a",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+
+      window.db = db;
+      window.firestoreFns = { collection, getDocs, addDoc };
+      window.auth = auth;
+      window.authFns = {
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged,
+      };
+    </script>
+    <script src="script.js" defer></script>
   </body>
 </html>

@@ -29,25 +29,36 @@ let inputNama = document.querySelector("#inputNamaProjek");
 let inputDeskripsi = document.querySelector("#inputDeskripsiProjek");
 let tombolTambah = document.querySelector("#tombolTambahProjek");
 
-// 1. Saat halaman dibuka, cek localStorage — ada data lama gak?
-let dataTersimpan = localStorage.getItem("daftarProjek");
-let daftarProjek = dataTersimpan ? JSON.parse(dataTersimpan) : [];
+let daftarProjek = [];
 
-// langsung tampilkan yang sudah tersimpan (kalau ada)
-tampilkanSemuaProjek();
+async function muatProjekDariFirebase() {
+  const { collection, getDocs } = window.firestoreFns;
+  const snapshot = await getDocs(collection(window.db, "projects"));
 
-tombolTambah.addEventListener("click", function () {
+  daftarProjek = [];
+  snapshot.forEach((doc) => {
+    daftarProjek.push(doc.data());
+  });
+
+  tampilkanSemuaProjek();
+}
+
+muatProjekDariFirebase();
+
+tombolTambah.addEventListener("click", async function () {
+  const { collection, addDoc } = window.firestoreFns;
+
   let projekBaru = {
     nama: inputNama.value,
     deskripsi: inputDeskripsi.value,
   };
 
-  daftarProjek.push(projekBaru);
-  tampilkanSemuaProjek();
-  simpanKeLocalStorage();
+  await addDoc(collection(window.db, "projects"), projekBaru);
 
   inputNama.value = "";
   inputDeskripsi.value = "";
+
+  muatProjekDariFirebase();
 });
 
 function tampilkanSemuaProjek() {
@@ -66,3 +77,41 @@ function tampilkanSemuaProjek() {
 function simpanKeLocalStorage() {
   localStorage.setItem("daftarProjek", JSON.stringify(daftarProjek));
 }
+
+const { signInWithEmailAndPassword, signOut, onAuthStateChanged } =
+  window.authFns;
+
+let loginBox = document.querySelector("#loginBox");
+let formTambahProjek = document.querySelector("#formTambahProjek");
+let inputEmail = document.querySelector("#inputEmail");
+let inputPassword = document.querySelector("#inputPassword");
+let tombolLogin = document.querySelector("#tombolLogin");
+let tombolLogout = document.querySelector("#tombolLogout");
+let loginStatus = document.querySelector("#loginStatus");
+
+onAuthStateChanged(window.auth, function (user) {
+  if (user) {
+    loginBox.style.display = "none";
+    formTambahProjek.style.display = "block";
+  } else {
+    loginBox.style.display = "block";
+    formTambahProjek.style.display = "none";
+  }
+});
+
+tombolLogin.addEventListener("click", async function () {
+  try {
+    await signInWithEmailAndPassword(
+      window.auth,
+      inputEmail.value,
+      inputPassword.value,
+    );
+    loginStatus.textContent = "";
+  } catch (error) {
+    loginStatus.textContent = "Login gagal, cek email/password.";
+  }
+});
+
+tombolLogout.addEventListener("click", async function () {
+  await signOut(window.auth);
+});
