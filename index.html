@@ -1,16 +1,33 @@
 <!doctype html>
-<html>
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Halaman Pertama Saya</title>
+    <title>Sandi - Portofolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Lexend:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav>
-      <a href="#projects">Portofolio</a>
-      <a href="#about">Tentang</a>
-      <a href="#contact">Kontak</a>
+      <div
+        style="
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 22px;
+          text-transform: uppercase;
+        "
+      >
+        Sandi
+      </div>
+      <div>
+        <a href="#projects">Portofolio</a>
+        <a href="#about">Tentang</a>
+        <a href="#contact">Kontak</a>
+      </div>
     </nav>
 
     <section id="hero">
@@ -19,13 +36,7 @@
         Saya Sandi, mahasiswa Politeknik Indramayu yang membangun sistem nyata —
         web, mobile, sampai tooling DevOps.
       </p>
-      <img id="fotoProfil" src="assets/sandi.jpg" alt="Foto Sandi" />
-      <input
-        type="file"
-        id="fotoInput"
-        accept="image/*"
-        style="display: none"
-      />
+      <img src="assets/sandi.jpg" alt="Foto Sandi" />
     </section>
 
     <section id="projects">
@@ -65,8 +76,10 @@
     <section id="contact">
       <h2>Kontak</h2>
       <p>Mau kolaborasi atau magang bareng?</p>
-      <a href="mailto:email-kamu@contoh.com">email-kamu@contoh.com</a>
+      <a href="mailto:email-kamu@contoh.com">sandiwira201@gmail.com</a>
     </section>
+
+    <footer>&copy; 2026 Sandi</footer>
 
     <div id="modalHapus" style="display: none">
       <div class="modal-box">

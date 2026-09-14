@@ -1,10 +1,16 @@
 :root {
+  --surface: #f9f9f9;
+  --surface-lowest: #ffffff;
+  --surface-container: #eeeeee;
   --hitam: #1b1b1b;
-  --putih: #ffffff;
+  --abu-teks: #4b4731;
   --kuning: #ffe600;
   --pink: #df0b81;
-  --hijau-lime: #82ff82;
-  --abu: #eeeeee;
+  --pink-soft: #ffd9e3;
+  --lime: #82ff82;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Lexend", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 * {
@@ -12,155 +18,203 @@
   margin: 0;
   padding: 0;
 }
-
 body {
-  font-family: "Segoe UI", sans-serif;
+  background: var(--surface);
   color: var(--hitam);
-  background: #f9f9f9;
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* NAV */
 nav {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px 40px;
-  background: var(--putih);
+  background: var(--surface-lowest);
   border-bottom: 4px solid var(--hitam);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
-
 nav a {
-  text-decoration: none;
-  color: var(--hitam);
-  font-weight: bold;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-left: 24px;
+}
+nav a:hover {
+  color: var(--pink);
 }
 
+/* HERO */
 #hero {
   padding: 60px 40px;
   border-bottom: 4px solid var(--hitam);
 }
-
 #hero h1 {
-  font-size: 48px;
+  font-family: var(--font-display);
+  font-weight: 700;
   text-transform: uppercase;
+  font-size: clamp(36px, 6vw, 64px);
+  letter-spacing: -0.02em;
 }
-
 #hero p {
-  max-width: 500px;
+  max-width: 520px;
   margin-top: 16px;
-  color: #4b4731;
+  color: var(--abu-teks);
+  font-size: 17px;
+  border-left: 4px solid var(--pink);
+  padding-left: 16px;
 }
-
 #hero img {
-  width: 220px;
-  height: 260px;
+  width: 240px;
+  height: 280px;
   object-fit: cover;
+  margin-top: 32px;
   border: 4px solid var(--hitam);
   box-shadow: 8px 8px 0 var(--hitam);
-  margin-top: 24px;
 }
 
-#projects {
+/* SECTION HEADER */
+section {
   padding: 60px 40px;
   border-bottom: 4px solid var(--hitam);
 }
-
-.proj-card {
-  border: 4px solid var(--hitam);
-  box-shadow: 8px 8px 0 var(--hitam);
-  padding: 20px;
-  max-width: 320px;
-  margin-bottom: 40px;
-  background: var(--putih);
+section:last-of-type {
+  border-bottom: none;
+}
+section h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 32px;
 }
 
-.proj-card h3 {
-  margin-bottom: 8px;
-}
-
-.proj-card a {
-  display: inline-block;
-  margin-top: 12px;
-  font-weight: bold;
-  color: var(--pink);
-}
-
-#projects {
-  padding: 60px 40px;
-  border-bottom: 4px solid var(--hitam);
-}
-
-#projects h2 {
-  margin-bottom: 24px;
-}
-
+/* PROJECT GRID */
 .proj-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
 }
-
-#about,
-#contact {
-  padding: 60px 40px;
-  border-bottom: 4px solid var(--hitam);
+.proj-card {
+  border: 4px solid var(--hitam);
+  box-shadow: 8px 8px 0 var(--hitam);
+  background: var(--surface-lowest);
+  padding: 20px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-
-#contact {
-  background: var(--kuning);
-}
-
-#contact a {
-  display: inline-block;
-  margin-top: 16px;
-  font-weight: bold;
-  border-bottom: 2px solid var(--hitam);
-}
-
-h2 {
+.proj-card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
   text-transform: uppercase;
-  font-size: 32px;
+}
+.proj-card p {
+  color: var(--abu-teks);
+  font-size: 14px;
+  flex: 1;
 }
 
-#projects h3 {
+/* FORM (login & tambah projek) */
+#loginBox,
+#formTambahProjek {
   margin-top: 40px;
-  margin-bottom: 16px;
+  padding: 24px;
+  max-width: 420px;
+  border: 4px solid var(--hitam);
+  box-shadow: 8px 8px 0 var(--hitam);
+  background: var(--surface-lowest);
 }
-
-#inputNamaProjek,
-#inputDeskripsiProjek {
+#loginBox h3,
+#formTambahProjek h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+#loginBox input,
+#formTambahProjek input,
+#formTambahProjek textarea {
   display: block;
   width: 100%;
-  max-width: 400px;
   border: 4px solid var(--hitam);
   padding: 12px;
   margin-bottom: 16px;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 15px;
+  background: var(--surface);
 }
-
-#inputDeskripsiProjek {
+#formTambahProjek textarea {
   min-height: 80px;
   resize: vertical;
 }
-
-#tombolTambahProjek {
+#loginBox button,
+#formTambahProjek button {
   border: 4px solid var(--hitam);
   background: var(--kuning);
-  padding: 12px 24px;
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 8px 8px 0 var(--hitam);
+  padding: 12px 22px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  box-shadow: 6px 6px 0 var(--hitam);
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#loginBox button:hover,
+#formTambahProjek button:hover {
+  box-shadow: 9px 9px 0 var(--hitam);
+}
+#loginBox button:active,
+#formTambahProjek button:active {
+  box-shadow: 0 0 0 var(--hitam);
+  transform: translate(6px, 6px);
+}
+#tombolLogout {
+  background: var(--pink-soft);
+}
+#loginStatus {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pink);
+  margin-top: 8px;
+}
+
+.tombolHapusProjek {
+  align-self: flex-start;
+  border: 2px solid var(--hitam);
+  background: var(--pink-soft);
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
-#tombolTambahProjek:hover {
-  box-shadow: 12px 12px 0 var(--hitam);
-}
-
-#tombolTambahProjek:active {
-  box-shadow: 0 0 var(--hitam);
-  transform: translate(8px, 8px);
-}
-
+/* MODAL HAPUS */
 #modalHapus {
   position: fixed;
   inset: 0;
@@ -170,25 +224,52 @@ h2 {
   justify-content: center;
   z-index: 100;
 }
-
 .modal-box {
-  background: var(--putih);
+  background: var(--surface-lowest);
   border: 4px solid var(--hitam);
   box-shadow: 8px 8px 0 var(--hitam);
-  padding: 24px;
+  padding: 28px;
   max-width: 320px;
   text-align: center;
 }
-
+.modal-box p {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
 .modal-box button {
   margin: 16px 6px 0;
   border: 4px solid var(--hitam);
   padding: 10px 20px;
-  font-weight: bold;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
   cursor: pointer;
+  box-shadow: 4px 4px 0 var(--hitam);
 }
-
 #modalHapusYa {
   background: var(--pink);
-  color: white;
+  color: #fff;
+}
+#modalHapusBatal {
+  background: var(--surface-lowest);
+}
+
+/* ABOUT & CONTACT */
+#contact {
+  background: var(--kuning);
+}
+#contact a {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 12px;
+}
+
+footer {
+  padding: 24px 40px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
 }

@@ -1,28 +1,3 @@
-let foto = document.querySelector("#fotoProfil");
-let inputFoto = document.querySelector("#fotoInput");
-
-// 1. Saat halaman pertama dibuka, cek dulu: ada foto tersimpan gak?
-let fotoTersimpan = localStorage.getItem("fotoProfil");
-if (fotoTersimpan) {
-  foto.src = fotoTersimpan;
-}
-
-foto.addEventListener("click", function () {
-  inputFoto.click();
-});
-
-inputFoto.addEventListener("change", function () {
-  let fileTerpilih = inputFoto.files[0];
-
-  let reader = new FileReader();
-  reader.onload = function () {
-    foto.src = reader.result;
-    // 2. Simpan hasil bacaan foto ke localStorage
-    localStorage.setItem("fotoProfil", reader.result);
-  };
-  reader.readAsDataURL(fileTerpilih);
-});
-
 // ambil elemen yang dibutuhin
 let grid = document.querySelector(".proj-grid");
 let inputNama = document.querySelector("#inputNamaProjek");
@@ -46,11 +21,16 @@ async function muatProjekDariFirebase() {
 muatProjekDariFirebase();
 
 tombolTambah.addEventListener("click", async function () {
+  if (!inputNama.value.trim() || !inputDeskripsi.value.trim()) {
+    alert("Nama dan deskripsi projek wajib diisi.");
+    return;
+  }
+
   const { collection, addDoc } = window.firestoreFns;
 
   let projekBaru = {
-    nama: inputNama.value,
-    deskripsi: inputDeskripsi.value,
+    nama: inputNama.value.trim(),
+    deskripsi: inputDeskripsi.value.trim(),
   };
 
   await addDoc(collection(window.db, "projects"), projekBaru);
@@ -75,8 +55,8 @@ function tampilkanSemuaProjek() {
       : "";
     grid.innerHTML += `
       <div class="proj-card">
-        <h3>${p.nama}</h3>
-        <p>${p.deskripsi}</p>
+        <h3>${p.nama || "(tanpa nama)"}</h3>
+        <p>${p.deskripsi || ""}</p>
         ${tombolHapus}
       </div>
     `;
@@ -102,10 +82,6 @@ modalHapusYa.addEventListener("click", async function () {
   muatProjekDariFirebase();
 });
 
-function simpanKeLocalStorage() {
-  localStorage.setItem("daftarProjek", JSON.stringify(daftarProjek));
-}
-
 const { signInWithEmailAndPassword, signOut, onAuthStateChanged } =
   window.authFns;
 
@@ -125,6 +101,7 @@ onAuthStateChanged(window.auth, function (user) {
     loginBox.style.display = "block";
     formTambahProjek.style.display = "none";
   }
+  tampilkanSemuaProjek();
 });
 
 tombolLogin.addEventListener("click", async function () {
