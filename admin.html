@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Sandi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Lexend:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div
+        style="
+          font-family: var(--font-display);
+          font-weight: 700;
+          font-size: 22px;
+          text-transform: uppercase;
+        "
+      >
+        Sandi - Admin
+      </div>
+      <div>
+        <a href="index.html">Kembali ke Portofolio</a>
+      </div>
+    </nav>
+
+    <section id="projects">
+      <h2>Kelola Projek</h2>
+      <div class="proj-grid" id="daftarProjekAdmin"></div>
+
+      <div id="loginBox">
+        <h3>Login Admin</h3>
+        <input type="text" id="inputEmail" placeholder="Email" />
+        <input type="password" id="inputPassword" placeholder="Password" />
+        <button id="tombolLogin">Login</button>
+        <p id="loginStatus"></p>
+      </div>
+
+      <div id="formTambahProjek" style="display: none">
+        <h3>Tambah Projek Baru</h3>
+        <input type="text" id="inputNamaProjek" placeholder="Nama projek" />
+        <textarea
+          id="inputDeskripsiProjek"
+          placeholder="Deskripsi singkat"
+        ></textarea>
+        <button id="tombolTambahProjek">Tambah Projek</button>
+        <button id="tombolLogout">Logout</button>
+      </div>
+    </section>
+
+    <div id="modalHapus" style="display: none">
+      <div class="modal-box">
+        <p>Yakin mau hapus projek ini?</p>
+        <button id="modalHapusYa">Ya, Hapus</button>
+        <button id="modalHapusBatal">Batal</button>
+      </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+        addDoc,
+        deleteDoc,
+        doc,
+      } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBpkPJYOVqRZ1POS3raJvZw9lTDGsovvSQ",
+        authDomain: "portofolio-sandi.firebaseapp.com",
+        projectId: "portofolio-sandi",
+        storageBucket: "portofolio-sandi.firebasestorage.app",
+        messagingSenderId: "532734362143",
+        appId: "1:532734362143:web:e68fa01efc05a994db8b2a",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+
+      window.db = db;
+      window.firestoreFns = { collection, getDocs, addDoc, deleteDoc, doc };
+      window.auth = auth;
+      window.authFns = {
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged,
+      };
+    </script>
+    <script src="admin.js" defer></script>
+  </body>
+</html>

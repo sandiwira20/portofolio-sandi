@@ -44,25 +44,6 @@
       <div class="proj-grid">
         <p style="font-family: monospace; opacity: 0.6">Memuat projek...</p>
       </div>
-
-      <div id="loginBox">
-        <h3>Login Admin</h3>
-        <input type="text" id="inputEmail" placeholder="Email" />
-        <input type="password" id="inputPassword" placeholder="Password" />
-        <button id="tombolLogin">Login</button>
-        <p id="loginStatus"></p>
-      </div>
-
-      <div id="formTambahProjek" style="display: none">
-        <h3>Tambah Projek Baru</h3>
-        <input type="text" id="inputNamaProjek" placeholder="Nama projek" />
-        <textarea
-          id="inputDeskripsiProjek"
-          placeholder="Deskripsi singkat"
-        ></textarea>
-        <button id="tombolTambahProjek">Tambah Projek</button>
-        <button id="tombolLogout">Logout</button>
-      </div>
     </section>
 
     <section id="about">
@@ -76,18 +57,10 @@
     <section id="contact">
       <h2>Kontak</h2>
       <p>Mau kolaborasi atau magang bareng?</p>
-      <a href="mailto:email-kamu@contoh.com">sandiwira201@gmail.com</a>
+      <a href="mailto:email-kamu@contoh.com">email-kamu@contoh.com</a>
     </section>
 
     <footer>&copy; 2026 Sandi</footer>
-
-    <div id="modalHapus" style="display: none">
-      <div class="modal-box">
-        <p>Yakin mau hapus projek ini?</p>
-        <button id="modalHapusYa">Ya, Hapus</button>
-        <button id="modalHapusBatal">Batal</button>
-      </div>
-    </div>
 
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -95,16 +68,7 @@
         getFirestore,
         collection,
         getDocs,
-        addDoc,
-        deleteDoc,
-        doc,
       } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-      import {
-        getAuth,
-        signInWithEmailAndPassword,
-        signOut,
-        onAuthStateChanged,
-      } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyBpkPJYOVqRZ1POS3raJvZw9lTDGsovvSQ",
@@ -117,16 +81,9 @@
 
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-      const auth = getAuth(app);
 
       window.db = db;
-      window.firestoreFns = { collection, getDocs, addDoc, deleteDoc, doc };
-      window.auth = auth;
-      window.authFns = {
-        signInWithEmailAndPassword,
-        signOut,
-        onAuthStateChanged,
-      };
+      window.firestoreFns = { collection, getDocs };
     </script>
     <script src="script.js" defer></script>
   </body>
