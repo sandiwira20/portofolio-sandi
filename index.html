@@ -66,8 +66,90 @@
 
     <section id="contact">
       <h2>Kontak</h2>
-      <p>Mau kolaborasi atau magang bareng?</p>
-      <a href="mailto:email-kamu@contoh.com">email-kamu@contoh.com</a>
+      <div class="contact-grid">
+        <div class="contact-panel">
+          <span class="chip chip-pink">Hubungi Langsung</span>
+          <h3>Kolaborasi &amp; Diskusi</h3>
+          <p>
+            Tertarik merekrut saya sebagai Full-Stack Developer, atau
+            mendiskusikan projek baru? Klik salah satu jalur komunikasi di
+            bawah.
+          </p>
+
+          <div class="contact-item">
+            <span
+              >Email Resmi<br /><strong>sandiwira201@gmail.com</strong></span
+            >
+            <button class="btn-copy" data-copy="sandiwira201@gmail.com">
+              Copy
+            </button>
+          </div>
+          <div class="contact-item">
+            <span>LinkedIn<br /><strong>/in/sandi-wira</strong></span>
+            <a
+              class="btn-copy"
+              href="https://linkedin.com/in/sandi-wira" 
+              target="_blank"
+              rel="noopener"
+              >Buka</a
+            >
+          </div>
+          <div class="contact-item">
+            <span>GitHub<br /><strong>@sandiwira20</strong></span>
+            <a
+              class="btn-copy"
+              href="https://github.com/sandiwira20"
+              target="_blank"
+              rel="noopener"
+              >Buka</a
+            >
+          </div>
+        </div>
+
+        <div class="contact-panel">
+          <span class="chip chip-lime">Kirim Pesan Cepat</span>
+          <h3>Ceritakan Kebutuhanmu</h3>
+
+          <label>Nama Lengkap</label>
+          <input
+            type="text"
+            id="pesanNama"
+            placeholder="Contoh: Budi Pratama"
+          />
+
+          <label>Email / Kontak</label>
+          <input
+            type="text"
+            id="pesanEmail"
+            placeholder="budi@perusahaan.com"
+          />
+
+          <label>Ceritakan Ide/Kebutuhanmu</label>
+          <textarea
+            id="pesanIsi"
+            placeholder="Halo Sandi, saya tertarik untuk..."
+          ></textarea>
+
+          <button class="btn-publish" id="tombolKirimPesan">
+            Kirim Pesan &rarr;
+          </button>
+        </div>
+      </div>
+
+      <div class="cta-banner">
+        <span class="chip chip-pink">Available for Work</span>
+        <h3>Punya Ide Projek Menarik?<br />Ayo Wujudkan Bersama!</h3>
+        <p>
+          Mari bangun sistem yang berguna dan tak terlupakan bersama teknologi
+          modern.
+        </p>
+        <a
+          href="mailto:email-kamu@contoh.com"
+          class="btn-publish"
+          style="display: inline-block; width: auto"
+          >Mulai Sekarang &rarr;</a
+        >
+      </div>
     </section>
 
     <footer>&copy; 2026 Sandi</footer>

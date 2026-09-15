@@ -483,3 +483,114 @@ body {
   object-fit: cover;
   clip-path: polygon(15% 0%, 85% 0%, 100% 55%, 50% 100%, 0% 55%);
 }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.contact-panel {
+  border: 4px solid var(--hitam);
+  box-shadow: 8px 8px 0 var(--hitam);
+  background: var(--surface-lowest);
+  padding: 28px;
+}
+.contact-panel h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin: 12px 0;
+}
+.contact-panel > p {
+  color: var(--abu-teks);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.contact-panel label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+.contact-panel input,
+.contact-panel textarea {
+  width: 100%;
+  border: 4px solid var(--hitam);
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--surface);
+}
+.contact-panel textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 2px solid var(--hitam);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+.btn-copy {
+  border: 2px solid var(--hitam);
+  background: var(--kuning);
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cta-banner {
+  border: 4px solid var(--hitam);
+  box-shadow: 8px 8px 0 var(--hitam);
+  background: var(--surface-lowest);
+  padding: 36px;
+  text-align: left;
+}
+.cta-banner h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(22px, 3vw, 32px);
+  margin: 14px 0 10px;
+}
+.cta-banner p {
+  color: var(--abu-teks);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 760px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 2px solid var(--hitam);
+  margin-bottom: 8px;
+}
+.chip-pink {
+  background: var(--pink-soft);
+}
+.chip-lime {
+  background: var(--lime);
+}
