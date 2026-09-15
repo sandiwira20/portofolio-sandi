@@ -65,11 +65,10 @@ nav a:hover {
 /* HERO */
 #hero {
   padding: 60px 40px;
-  border-bottom: 4px solid var(--hitam);
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 32px;
-  align-items: center;
+  align-items: start;
 }
 
 #hero h1 {
@@ -91,10 +90,7 @@ nav a:hover {
 /* SECTION HEADER */
 section {
   padding: 60px 40px;
-  border-bottom: 4px solid var(--hitam);
-}
-section:last-of-type {
-  border-bottom: none;
+  overflow: hidden;
 }
 section h2 {
   font-family: var(--font-display);
@@ -431,8 +427,8 @@ footer {
 body {
   background-color: var(--surface);
   background-image:
-    linear-gradient(to right, rgba(27, 27, 27, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(27, 27, 27, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(27, 27, 27, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 27, 27, 0.1) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
