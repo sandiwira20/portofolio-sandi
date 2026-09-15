@@ -1,4 +1,5 @@
 let grid = document.querySelector("#daftarProjekAdmin");
+let listWrap = document.querySelector("#listWrap");
 let inputNama = document.querySelector("#inputNamaProjek");
 let inputDeskripsi = document.querySelector("#inputDeskripsiProjek");
 let tombolTambah = document.querySelector("#tombolTambahProjek");
@@ -45,18 +46,20 @@ let idAkanDihapus = null;
 
 function tampilkanSemuaProjek() {
   if (!window.auth.currentUser) {
-    grid.innerHTML = `<p style="font-family:monospace; opacity:0.6;">Login dulu untuk melihat dan mengelola projek.</p>`;
+    listWrap.style.display = "none";
     return;
   }
 
+  listWrap.style.display = "block";
   grid.innerHTML = "";
+
   for (let i = 0; i < daftarProjek.length; i++) {
     let p = daftarProjek[i];
     grid.innerHTML += `
-      <div class="proj-card">
-        <h3>${p.nama}</h3>
+      <div class="admin-list-row">
+        <h4>${p.nama}</h4>
         <p>${p.deskripsi}</p>
-        <button class="tombolHapusProjek" data-id="${p.id}">Hapus</button>
+        <button class="btn-hapus-row tombolHapusProjek" data-id="${p.id}">Hapus</button>
       </div>
     `;
   }
@@ -100,7 +103,7 @@ onAuthStateChanged(window.auth, function (user) {
   } else {
     loginBox.style.display = "block";
     formTambahProjek.style.display = "none";
-    tampilkanSemuaProjek();
+    listWrap.style.display = "none";
   }
 });
 

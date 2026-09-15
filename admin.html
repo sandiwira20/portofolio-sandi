@@ -28,29 +28,50 @@
       </div>
     </nav>
 
-    <section id="projects">
-      <h2>Kelola Projek</h2>
-      <div class="proj-grid" id="daftarProjekAdmin"></div>
+    <div class="admin-header">
+      <h1>Kelola Projek</h1>
+      <p>
+        Tambah, lihat, atau hapus projek yang tampil di halaman portofolio
+        publik.
+      </p>
+    </div>
 
-      <div id="loginBox">
-        <h3>Login Admin</h3>
-        <input type="text" id="inputEmail" placeholder="Email" />
-        <input type="password" id="inputPassword" placeholder="Password" />
-        <button id="tombolLogin">Login</button>
-        <p id="loginStatus"></p>
-      </div>
+    <div id="loginBox" class="admin-panel">
+      <h3>Login Admin</h3>
+      <input type="text" id="inputEmail" placeholder="Email" />
+      <input type="password" id="inputPassword" placeholder="Password" />
+      <button class="btn-publish" id="tombolLogin">Login</button>
+      <p id="loginStatus"></p>
+    </div>
 
-      <div id="formTambahProjek" style="display: none">
-        <h3>Tambah Projek Baru</h3>
-        <input type="text" id="inputNamaProjek" placeholder="Nama projek" />
-        <textarea
-          id="inputDeskripsiProjek"
-          placeholder="Deskripsi singkat"
-        ></textarea>
-        <button id="tombolTambahProjek">Tambah Projek</button>
-        <button id="tombolLogout">Logout</button>
+    <div id="formTambahProjek" class="admin-panel" style="display: none">
+      <h3>Tambah Projek Baru</h3>
+
+      <div class="field-label">
+        <span class="field-num num-pink">01</span> Nama Projek
       </div>
-    </section>
+      <input type="text" id="inputNamaProjek" placeholder="mis. SIPINTAR" />
+
+      <div class="field-label">
+        <span class="field-num num-kuning">02</span> Deskripsi
+      </div>
+      <textarea
+        id="inputDeskripsiProjek"
+        placeholder="Ceritakan projek ini secara singkat"
+      ></textarea>
+
+      <button class="btn-publish" id="tombolTambahProjek">Tambah Projek</button>
+      <button class="btn-secondary" id="tombolLogout">Logout</button>
+    </div>
+
+    <div id="listWrap" class="admin-list" style="display: none">
+      <div class="admin-list-head">
+        <div>Nama</div>
+        <div>Deskripsi</div>
+        <div>Aksi</div>
+      </div>
+      <div id="daftarProjekAdmin"></div>
+    </div>
 
     <div id="modalHapus" style="display: none">
       <div class="modal-box">

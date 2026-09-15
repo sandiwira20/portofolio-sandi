@@ -82,14 +82,6 @@ nav a:hover {
   border-left: 4px solid var(--pink);
   padding-left: 16px;
 }
-#hero img {
-  width: 240px;
-  height: 280px;
-  object-fit: cover;
-  margin-top: 32px;
-  border: 4px solid var(--hitam);
-  box-shadow: 8px 8px 0 var(--hitam);
-}
 
 /* SECTION HEADER */
 section {
@@ -272,4 +264,221 @@ footer {
   text-align: center;
   font-family: var(--font-mono);
   font-size: 13px;
+}
+
+/* ===== ADMIN PAGE ===== */
+.admin-header {
+  padding: 48px 40px 24px;
+  border-bottom: 4px solid var(--hitam);
+}
+.admin-header h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(30px, 4vw, 44px);
+}
+.admin-header p {
+  max-width: 60ch;
+  margin-top: 12px;
+  color: var(--abu-teks);
+  border-left: 4px solid var(--pink);
+  padding-left: 16px;
+}
+
+.admin-panel {
+  margin: 40px;
+  padding: 32px;
+  max-width: 520px;
+  border: 4px solid var(--hitam);
+  box-shadow: 8px 8px 0 var(--hitam);
+  background: var(--surface-lowest);
+}
+.admin-panel h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.field-num {
+  border: 2px solid var(--hitam);
+  padding: 2px 9px;
+  font-size: 12px;
+}
+.num-pink {
+  background: var(--pink-soft);
+}
+.num-kuning {
+  background: var(--kuning);
+}
+.num-lime {
+  background: var(--lime);
+}
+
+.admin-panel input,
+.admin-panel textarea {
+  width: 100%;
+  border: 4px solid var(--hitam);
+  padding: 14px;
+  margin-bottom: 22px;
+  font-family: inherit;
+  font-size: 15px;
+  background: var(--surface);
+}
+.admin-panel textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.btn-publish {
+  width: 100%;
+  border: 4px solid var(--hitam);
+  background: var(--kuning);
+  padding: 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 8px 8px 0 var(--hitam);
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+.btn-publish:hover {
+  box-shadow: 11px 11px 0 var(--hitam);
+}
+.btn-publish:active {
+  box-shadow: 0 0 0 var(--hitam);
+  transform: translate(8px, 8px);
+}
+
+.btn-secondary {
+  width: 100%;
+  border: 4px solid var(--hitam);
+  background: var(--surface-lowest);
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* daftar projek gaya list, bukan grid kartu */
+.admin-list {
+  margin: 0 40px 40px;
+}
+.admin-list-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr 100px;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--surface-container);
+  border: 4px solid var(--hitam);
+  border-bottom: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.admin-list-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 100px;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 4px solid var(--hitam);
+  border-top: none;
+  background: var(--surface-lowest);
+}
+.admin-list-row h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.admin-list-row p {
+  font-size: 13px;
+  color: var(--abu-teks);
+}
+.btn-hapus-row {
+  border: 2px solid var(--hitam);
+  background: var(--pink-soft);
+  padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Latar belakang kotak-kotak (grid) di seluruh halaman */
+body {
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(to right, rgba(27, 27, 27, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 27, 27, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Foto profil bentuk perisai + aksen dekoratif */
+.hero-photo-wrap {
+  position: relative;
+  width: 280px;
+  margin-top: 40px;
+}
+
+.hero-photo-accent {
+  position: absolute;
+  top: -22px;
+  left: -18px;
+  width: 64px;
+  height: 64px;
+  background: var(--lime);
+  border: 4px solid var(--hitam);
+  transform: rotate(18deg);
+  z-index: 1;
+}
+
+.hero-nametag {
+  position: absolute;
+  top: -16px;
+  right: -14px;
+  background: var(--pink-soft);
+  border: 4px solid var(--hitam);
+  padding: 8px 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  transform: rotate(-6deg);
+  z-index: 3;
+  font-size: 14px;
+}
+
+.hero-photo-shape {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  background: var(--hitam);
+  padding: 6px;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 55%, 50% 100%, 0% 55%);
+  filter: drop-shadow(8px 8px 0 var(--hitam));
+  z-index: 2;
+}
+
+.hero-photo-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 55%, 50% 100%, 0% 55%);
 }
