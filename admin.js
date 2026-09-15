@@ -2,6 +2,7 @@ let grid = document.querySelector("#daftarProjekAdmin");
 let listWrap = document.querySelector("#listWrap");
 let inputNama = document.querySelector("#inputNamaProjek");
 let inputDeskripsi = document.querySelector("#inputDeskripsiProjek");
+let inputUrl = document.querySelector("#inputUrlProjek");
 let tombolTambah = document.querySelector("#tombolTambahProjek");
 
 let daftarProjek = [];
@@ -29,12 +30,14 @@ tombolTambah.addEventListener("click", async function () {
   let projekBaru = {
     nama: inputNama.value.trim(),
     deskripsi: inputDeskripsi.value.trim(),
+    url: inputUrl.value.trim() || null,
   };
 
   await addDoc(collection(window.db, "projects"), projekBaru);
 
   inputNama.value = "";
   inputDeskripsi.value = "";
+  inputUrl.value = "";
 
   muatProjekDariFirebase();
 });

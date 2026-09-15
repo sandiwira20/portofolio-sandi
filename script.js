@@ -19,38 +19,24 @@ function tampilkanSemuaProjek() {
   grid.innerHTML = "";
   for (let i = 0; i < daftarProjek.length; i++) {
     let p = daftarProjek[i];
+    let nomor = String(i + 1).padStart(2, "0");
+    let warnaThumb = ["kuning", "pink-soft", "lime"][i % 3];
+    let tombolDetail = p.url
+      ? `<a href="${p.url}" target="_blank" rel="noopener" class="btn-detail-proyek">Detail Proyek &rarr;</a>`
+      : `<span class="btn-detail-proyek btn-detail-disabled">Belum ada link</span>`;
+
     grid.innerHTML += `
-      <div class="proj-card">
-        <h3>${p.nama}</h3>
-        <p>${p.deskripsi}</p>
+      <div class="proj-card-v2">
+        <div class="proj-thumb-v2" style="background:var(--${warnaThumb});">
+          <span class="proj-num">${nomor}</span>
+          <span class="proj-thumb-huruf">${p.nama.charAt(0).toUpperCase()}</span>
+        </div>
+        <div class="proj-body-v2">
+          <h3>${p.nama}</h3>
+          <p>${p.deskripsi}</p>
+          ${tombolDetail}
+        </div>
       </div>
     `;
   }
-}
-
-document.querySelectorAll(".btn-copy[data-copy]").forEach(function (btn) {
-  btn.addEventListener("click", async function () {
-    await navigator.clipboard.writeText(btn.dataset.copy);
-    let asli = btn.textContent;
-    btn.textContent = "Tersalin!";
-    setTimeout(function () {
-      btn.textContent = asli;
-    }, 1500);
-  });
-});
-
-let tombolKirimPesan = document.querySelector("#tombolKirimPesan");
-if (tombolKirimPesan) {
-  tombolKirimPesan.addEventListener("click", function () {
-    let nama = document.querySelector("#pesanNama").value;
-    let email = document.querySelector("#pesanEmail").value;
-    let isi = document.querySelector("#pesanIsi").value;
-
-    let subjek = encodeURIComponent("Pesan dari Portofolio - " + nama);
-    let body = encodeURIComponent(
-      "Nama: " + nama + "\nEmail: " + email + "\n\n" + isi,
-    );
-
-    window.location.href = `mailto:email-kamu@contoh.com?subject=${subjek}&body=${body}`;
-  });
 }
