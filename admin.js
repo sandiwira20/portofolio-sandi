@@ -194,10 +194,12 @@ onAuthStateChanged(window.auth, function (user) {
   if (user) {
     loginBox.style.display = "none";
     formTambahProjek.style.display = "block";
+    tombolLogout.style.display = "block";
     muatProjekDariFirebase();
   } else {
     loginBox.style.display = "block";
     formTambahProjek.style.display = "none";
+    tombolLogout.style.display = "none";
     listWrap.style.display = "none";
   }
 });

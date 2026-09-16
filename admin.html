@@ -28,12 +28,15 @@
       </div>
     </nav>
 
-    <div class="admin-header">
-      <h1>Kelola Projek</h1>
-      <p>
-        Tambah, lihat, atau hapus projek yang tampil di halaman portofolio
-        publik.
-      </p>
+    <div class="admin-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <h1>Kelola Project</h1>
+        <p>
+          Tambah, lihat, atau hapus projek yang tampil di halaman portofolio
+          publik.
+        </p>
+      </div>
+      <button class="btn-secondary" id="tombolLogout" style="display: none; width: auto; padding: 12px 24px; background: var(--pink-soft);">Logout</button>
     </div>
 
     <div id="loginBox" class="admin-panel">
@@ -44,53 +47,54 @@
       <p id="loginStatus"></p>
     </div>
 
-    <div id="formTambahProjek" class="admin-panel" style="display: none">
-      <h3>Tambah Projek Baru</h3>
+    <div class="admin-content-wrapper" style="display: flex; gap: 40px; align-items: flex-start; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; padding: 0 40px;">
+      <div id="formTambahProjek" class="admin-panel" style="display: none; margin: 40px 0; width: 100%; max-width: 420px; flex-shrink: 0;">
+        <h3>Tambah Projek Baru</h3>
 
-      <div class="field-label">
-        <span class="field-num num-pink">01</span> Nama Projek
+        <div class="field-label">
+          <span class="field-num num-pink">01</span> Nama Projek
+        </div>
+        <input type="text" id="inputNamaProjek" placeholder="mis. SIPINTAR" />
+
+        <div class="field-label">
+          <span class="field-num num-kuning">02</span> Deskripsi
+        </div>
+        <textarea
+          id="inputDeskripsiProjek"
+          placeholder="Ceritakan projek ini secara singkat"
+        ></textarea>
+
+        <div class="field-label">
+          <span class="field-num num-lime">03</span> Link Projek (opsional)
+        </div>
+        <input
+          type="text"
+          id="inputUrlProjek"
+          placeholder="https://github.com/... atau link demo"
+        />
+
+        <div class="field-label">
+          <span class="field-num num-pink">04</span> Upload Gambar (opsional)
+        </div>
+        <input
+          type="file"
+          id="inputGambarFile"
+          accept="image/*"
+        />
+        <p id="uploadStatus" style="font-size: 14px; color: var(--pink-soft); margin-top: -10px; margin-bottom: 15px;"></p>
+
+        <button class="btn-publish" id="tombolTambahProjek">Tambah Projek</button>
+        <button class="btn-secondary" id="tombolBatalEdit" style="display: none;">Batal Edit</button>
       </div>
-      <input type="text" id="inputNamaProjek" placeholder="mis. SIPINTAR" />
 
-      <div class="field-label">
-        <span class="field-num num-kuning">02</span> Deskripsi
+      <div id="listWrap" class="admin-list" style="display: none; margin: 40px 0; flex: 1; min-width: 300px;">
+        <div class="admin-list-head">
+          <div>Nama</div>
+          <div>Deskripsi</div>
+          <div>Aksi</div>
+        </div>
+        <div id="daftarProjekAdmin"></div>
       </div>
-      <textarea
-        id="inputDeskripsiProjek"
-        placeholder="Ceritakan projek ini secara singkat"
-      ></textarea>
-
-      <div class="field-label">
-        <span class="field-num num-lime">03</span> Link Projek (opsional)
-      </div>
-      <input
-        type="text"
-        id="inputUrlProjek"
-        placeholder="https://github.com/... atau link demo"
-      />
-
-      <div class="field-label">
-        <span class="field-num num-pink">04</span> Upload Gambar (opsional)
-      </div>
-      <input
-        type="file"
-        id="inputGambarFile"
-        accept="image/*"
-      />
-      <p id="uploadStatus" style="font-size: 14px; color: var(--pink-soft); margin-top: -10px; margin-bottom: 15px;"></p>
-
-      <button class="btn-publish" id="tombolTambahProjek">Tambah Projek</button>
-      <button class="btn-secondary" id="tombolBatalEdit" style="display: none;">Batal Edit</button>
-      <button class="btn-secondary" id="tombolLogout">Logout</button>
-    </div>
-
-    <div id="listWrap" class="admin-list" style="display: none">
-      <div class="admin-list-head">
-        <div>Nama</div>
-        <div>Deskripsi</div>
-        <div>Aksi</div>
-      </div>
-      <div id="daftarProjekAdmin"></div>
     </div>
 
     <div id="modalHapus" style="display: none">
