@@ -39,18 +39,30 @@ tombolTambah.addEventListener("click", async function () {
   // Handle file upload jika ada
   let fileGambar = inputGambarFile.files[0];
   if (fileGambar) {
-    uploadStatus.textContent = "Sedang mengupload gambar...";
-    const { ref, uploadBytesResumable, getDownloadURL } = window.storageFns;
-    // Buat nama unik untuk file
-    let namaUnik = Date.now() + "-" + fileGambar.name;
-    const storageRef = ref(window.storage, "projek/" + namaUnik);
+    uploadStatus.textContent = "Sedang mengupload gambar ke ImgBB...";
+    
+    const formData = new FormData();
+    formData.append("image", fileGambar);
+    
+    // Gunakan API Key ImgBB kamu
+    const imgbbKey = "9e770dc89c35cfc34638f8c7b1a7d5b0";
     
     try {
-      const uploadTask = await uploadBytesResumable(storageRef, fileGambar);
-      imageUrl = await getDownloadURL(uploadTask.ref);
+      const response = await fetch(`https://api.imgbb.com/1/upload?key=${imgbbKey}`, {
+        method: "POST",
+        body: formData,
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        imageUrl = data.data.url;
+      } else {
+        throw new Error(data.error.message || "Gagal upload ke ImgBB");
+      }
     } catch (error) {
       console.error("Upload error:", error);
-      alert("Gagal mengupload gambar.");
+      alert("Gagal mengupload gambar: " + error.message);
       tombolTambah.disabled = false;
       uploadStatus.textContent = "";
       return;

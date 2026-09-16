@@ -26,7 +26,7 @@ function tampilkanSemuaProjek() {
       : `<span class="btn-detail-proyek btn-detail-disabled">Belum ada link</span>`;
 
     let thumbContent = p.gambar
-      ? `<img src="${p.gambar}" alt="${p.nama}" style="width: 100%; height: 100%; object-fit: cover;" />`
+      ? `<img src="${encodeURI(p.gambar)}" alt="${p.nama}" style="width: 100%; height: 100%; object-fit: cover;" />`
       : `<span class="proj-thumb-huruf">${p.nama.charAt(0).toUpperCase()}</span>`;
 
     grid.innerHTML += `
