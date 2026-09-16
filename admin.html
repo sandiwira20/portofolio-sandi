@@ -69,7 +69,18 @@
         placeholder="https://github.com/... atau link demo"
       />
 
+      <div class="field-label">
+        <span class="field-num num-pink">04</span> Upload Gambar (opsional)
+      </div>
+      <input
+        type="file"
+        id="inputGambarFile"
+        accept="image/*"
+      />
+      <p id="uploadStatus" style="font-size: 14px; color: var(--pink-soft); margin-top: -10px; margin-bottom: 15px;"></p>
+
       <button class="btn-publish" id="tombolTambahProjek">Tambah Projek</button>
+      <button class="btn-secondary" id="tombolBatalEdit" style="display: none;">Batal Edit</button>
       <button class="btn-secondary" id="tombolLogout">Logout</button>
     </div>
 
@@ -97,6 +108,7 @@
         collection,
         getDocs,
         addDoc,
+        updateDoc,
         deleteDoc,
         doc,
       } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -106,6 +118,12 @@
         signOut,
         onAuthStateChanged,
       } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+      import {
+        getStorage,
+        ref,
+        uploadBytesResumable,
+        getDownloadURL
+      } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyBpkPJYOVqRZ1POS3raJvZw9lTDGsovvSQ",
@@ -119,15 +137,18 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
       const auth = getAuth(app);
+      const storage = getStorage(app);
 
       window.db = db;
-      window.firestoreFns = { collection, getDocs, addDoc, deleteDoc, doc };
+      window.firestoreFns = { collection, getDocs, addDoc, updateDoc, deleteDoc, doc };
       window.auth = auth;
       window.authFns = {
         signInWithEmailAndPassword,
         signOut,
         onAuthStateChanged,
       };
+      window.storage = storage;
+      window.storageFns = { ref, uploadBytesResumable, getDownloadURL };
     </script>
     <script src="admin.js" defer></script>
   </body>

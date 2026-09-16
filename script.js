@@ -25,11 +25,15 @@ function tampilkanSemuaProjek() {
       ? `<a href="${p.url}" target="_blank" rel="noopener" class="btn-detail-proyek">Detail Proyek &rarr;</a>`
       : `<span class="btn-detail-proyek btn-detail-disabled">Belum ada link</span>`;
 
+    let thumbContent = p.gambar
+      ? `<img src="${p.gambar}" alt="${p.nama}" style="width: 100%; height: 100%; object-fit: cover;" />`
+      : `<span class="proj-thumb-huruf">${p.nama.charAt(0).toUpperCase()}</span>`;
+
     grid.innerHTML += `
       <div class="proj-card-v2">
-        <div class="proj-thumb-v2" style="background:var(--${warnaThumb});">
+        <div class="proj-thumb-v2" style="background:var(--${warnaThumb}); overflow: hidden;">
           <span class="proj-num">${nomor}</span>
-          <span class="proj-thumb-huruf">${p.nama.charAt(0).toUpperCase()}</span>
+          ${thumbContent}
         </div>
         <div class="proj-body-v2">
           <h3>${p.nama}</h3>
