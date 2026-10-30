@@ -40,21 +40,21 @@ tombolTambah.addEventListener("click", async function () {
   let fileGambar = inputGambarFile.files[0];
   if (fileGambar) {
     uploadStatus.textContent = "Sedang mengupload gambar ke ImgBB...";
-    
+
     const formData = new FormData();
     formData.append("image", fileGambar);
-    
+
     // Gunakan API Key ImgBB kamu
     const imgbbKey = "9e770dc89c35cfc34638f8c7b1a7d5b0";
-    
+
     try {
       const response = await fetch(`https://api.imgbb.com/1/upload?key=${imgbbKey}`, {
         method: "POST",
         body: formData,
       });
-      
+
       const data = await response.json();
-      
+
       if (data.success) {
         imageUrl = data.data.url;
       } else {
@@ -93,7 +93,7 @@ tombolTambah.addEventListener("click", async function () {
   inputDeskripsi.value = "";
   inputUrl.value = "";
   inputGambarFile.value = "";
-  
+
   setTimeout(() => {
     uploadStatus.textContent = "";
   }, 3000);
@@ -102,7 +102,7 @@ tombolTambah.addEventListener("click", async function () {
   muatProjekDariFirebase();
 });
 
-tombolBatalEdit.addEventListener("click", function() {
+tombolBatalEdit.addEventListener("click", function () {
   idSedangDiedit = null;
   gambarLama = null;
   inputNama.value = "";

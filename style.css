@@ -18,16 +18,19 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   background: var(--surface);
   color: var(--hitam);
   font-family: var(--font-body);
   line-height: 1.6;
 }
+
 img {
   display: block;
   max-width: 100%;
 }
+
 a {
   color: inherit;
   text-decoration: none;
@@ -51,6 +54,7 @@ nav {
   top: 0;
   z-index: 50;
 }
+
 nav a {
   font-family: var(--font-mono);
   font-weight: 600;
@@ -58,6 +62,7 @@ nav a {
   text-transform: uppercase;
   margin-left: 24px;
 }
+
 nav a:hover {
   color: var(--pink);
 }
@@ -78,6 +83,7 @@ nav a:hover {
   font-size: clamp(36px, 6vw, 64px);
   letter-spacing: -0.02em;
 }
+
 #hero p {
   max-width: 520px;
   margin-top: 16px;
@@ -92,6 +98,7 @@ section {
   padding: 60px 40px;
   overflow: hidden;
 }
+
 section h2 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -106,6 +113,7 @@ section h2 {
   flex-wrap: wrap;
   gap: 24px;
 }
+
 .proj-card {
   border: 4px solid var(--hitam);
   box-shadow: 8px 8px 0 var(--hitam);
@@ -116,12 +124,14 @@ section h2 {
   flex-direction: column;
   gap: 8px;
 }
+
 .proj-card h3 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 20px;
   text-transform: uppercase;
 }
+
 .proj-card p {
   color: var(--abu-teks);
   font-size: 14px;
@@ -138,6 +148,7 @@ section h2 {
   box-shadow: 8px 8px 0 var(--hitam);
   background: var(--surface-lowest);
 }
+
 #loginBox h3,
 #formTambahProjek h3 {
   font-family: var(--font-display);
@@ -146,6 +157,7 @@ section h2 {
   margin-bottom: 16px;
   font-size: 20px;
 }
+
 #loginBox input,
 #formTambahProjek input,
 #formTambahProjek textarea {
@@ -158,10 +170,12 @@ section h2 {
   font-size: 15px;
   background: var(--surface);
 }
+
 #formTambahProjek textarea {
   min-height: 80px;
   resize: vertical;
 }
+
 #loginBox button,
 #formTambahProjek button {
   border: 4px solid var(--hitam);
@@ -176,18 +190,22 @@ section h2 {
   margin-right: 10px;
   margin-bottom: 10px;
 }
+
 #loginBox button:hover,
 #formTambahProjek button:hover {
   box-shadow: 9px 9px 0 var(--hitam);
 }
+
 #loginBox button:active,
 #formTambahProjek button:active {
   box-shadow: 0 0 0 var(--hitam);
   transform: translate(6px, 6px);
 }
+
 #tombolLogout {
   background: var(--pink-soft);
 }
+
 #loginStatus {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -217,6 +235,7 @@ section h2 {
   justify-content: center;
   z-index: 100;
 }
+
 .modal-box {
   background: var(--surface-lowest);
   border: 4px solid var(--hitam);
@@ -225,11 +244,13 @@ section h2 {
   max-width: 320px;
   text-align: center;
 }
+
 .modal-box p {
   font-family: var(--font-display);
   font-weight: 700;
   margin-bottom: 8px;
 }
+
 .modal-box button {
   margin: 16px 6px 0;
   border: 4px solid var(--hitam);
@@ -240,10 +261,12 @@ section h2 {
   cursor: pointer;
   box-shadow: 4px 4px 0 var(--hitam);
 }
+
 #modalHapusYa {
   background: var(--pink);
   color: #fff;
 }
+
 #modalHapusBatal {
   background: var(--surface-lowest);
 }
@@ -252,6 +275,7 @@ section h2 {
 #contact {
   background: var(--kuning);
 }
+
 #contact a {
   font-family: var(--font-mono);
   font-weight: 600;
@@ -272,12 +296,14 @@ footer {
   padding: 48px 40px 24px;
   border-bottom: 4px solid var(--hitam);
 }
+
 .admin-header h1 {
   font-family: var(--font-display);
   font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(30px, 4vw, 44px);
 }
+
 .admin-header p {
   max-width: 60ch;
   margin-top: 12px;
@@ -294,6 +320,7 @@ footer {
   box-shadow: 8px 8px 0 var(--hitam);
   background: var(--surface-lowest);
 }
+
 .admin-panel h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -312,17 +339,21 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
 }
+
 .field-num {
   border: 2px solid var(--hitam);
   padding: 2px 9px;
   font-size: 12px;
 }
+
 .num-pink {
   background: var(--pink-soft);
 }
+
 .num-kuning {
   background: var(--kuning);
 }
+
 .num-lime {
   background: var(--lime);
 }
@@ -337,6 +368,7 @@ footer {
   font-size: 15px;
   background: var(--surface);
 }
+
 .admin-panel textarea {
   min-height: 90px;
   resize: vertical;
@@ -355,9 +387,11 @@ footer {
   cursor: pointer;
   margin-bottom: 12px;
 }
+
 .btn-publish:hover {
   box-shadow: 11px 11px 0 var(--hitam);
 }
+
 .btn-publish:active {
   box-shadow: 0 0 0 var(--hitam);
   transform: translate(8px, 8px);
@@ -379,6 +413,7 @@ footer {
 .admin-list {
   margin: 0 40px 40px;
 }
+
 .admin-list-head {
   display: grid;
   grid-template-columns: 1fr 2fr 100px;
@@ -392,6 +427,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
 }
+
 .admin-list-row {
   display: grid;
   grid-template-columns: 1fr 2fr 100px;
@@ -402,16 +438,19 @@ footer {
   border-top: none;
   background: var(--surface-lowest);
 }
+
 .admin-list-row h4 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
 }
+
 .admin-list-row p {
   font-size: 13px;
   color: var(--abu-teks);
 }
+
 .btn-hapus-row {
   border: 2px solid var(--hitam);
   background: var(--pink-soft);
@@ -490,12 +529,14 @@ body {
   gap: 24px;
   margin-bottom: 32px;
 }
+
 .contact-panel {
   border: 4px solid var(--hitam);
   box-shadow: 8px 8px 0 var(--hitam);
   background: var(--surface-lowest);
   padding: 28px;
 }
+
 .contact-panel h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -503,11 +544,13 @@ body {
   font-size: 24px;
   margin: 12px 0;
 }
-.contact-panel > p {
+
+.contact-panel>p {
   color: var(--abu-teks);
   font-size: 14px;
   margin-bottom: 20px;
 }
+
 .contact-panel label {
   display: block;
   font-family: var(--font-mono);
@@ -517,6 +560,7 @@ body {
   margin-bottom: 6px;
   margin-top: 14px;
 }
+
 .contact-panel input,
 .contact-panel textarea {
   width: 100%;
@@ -526,6 +570,7 @@ body {
   font-size: 14px;
   background: var(--surface);
 }
+
 .contact-panel textarea {
   min-height: 90px;
   resize: vertical;
@@ -541,6 +586,7 @@ body {
   margin-bottom: 12px;
   font-size: 13px;
 }
+
 .btn-copy {
   border: 2px solid var(--hitam);
   background: var(--kuning);
@@ -560,6 +606,7 @@ body {
   padding: 36px;
   text-align: left;
 }
+
 .cta-banner h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -567,6 +614,7 @@ body {
   font-size: clamp(22px, 3vw, 32px);
   margin: 14px 0 10px;
 }
+
 .cta-banner p {
   color: var(--abu-teks);
   margin-bottom: 20px;
@@ -588,9 +636,11 @@ body {
   border: 2px solid var(--hitam);
   margin-bottom: 8px;
 }
+
 .chip-pink {
   background: var(--pink-soft);
 }
+
 .chip-lime {
   background: var(--lime);
 }
@@ -614,16 +664,18 @@ html {
     box-shadow 0.12s ease,
     transform 0.12s ease;
 }
+
 .btn-lihat-projek:hover {
   box-shadow: 11px 11px 0 var(--hitam);
   transform: translate(-2px, -2px);
 }
+
 .btn-lihat-projek:active {
   box-shadow: 0 0 0 var(--hitam);
   transform: translate(8px, 8px);
 }
 
-#projects h2 + p {
+#projects h2+p {
   color: var(--abu-teks);
   margin-top: -24px;
   margin-bottom: 32px;
@@ -635,12 +687,14 @@ html {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
 }
+
 .proj-card-v2 {
   border: 4px solid var(--hitam);
   box-shadow: 8px 8px 0 var(--hitam);
   background: var(--surface-lowest);
   overflow: hidden;
 }
+
 .proj-thumb-v2 {
   position: relative;
   height: 140px;
@@ -649,6 +703,7 @@ html {
   align-items: center;
   justify-content: center;
 }
+
 .proj-num {
   position: absolute;
   top: 10px;
@@ -660,15 +715,18 @@ html {
   border: 2px solid var(--hitam);
   padding: 2px 8px;
 }
+
 .proj-thumb-huruf {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 56px;
   opacity: 0.35;
 }
+
 .proj-body-v2 {
   padding: 20px;
 }
+
 .proj-body-v2 h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -676,11 +734,13 @@ html {
   font-size: 19px;
   margin-bottom: 8px;
 }
+
 .proj-body-v2 p {
   color: var(--abu-teks);
   font-size: 14px;
   margin-bottom: 16px;
 }
+
 .btn-detail-proyek {
   display: inline-block;
   border: 2px solid var(--hitam);
@@ -691,6 +751,7 @@ html {
   font-size: 12px;
   text-transform: uppercase;
 }
+
 .btn-detail-disabled {
   background: var(--surface-container);
   color: var(--abu-teks);
